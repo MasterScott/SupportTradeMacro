@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Support PoE-TradeMacro</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	<script src="https://coinhive.com/lib/coinhive.min.js"></script>
+	<script>
+		window.CoinHive || document.write('<script src="/lib/coinhive.min.js"><\/script>');
+	</script>
+</head>
+<body>
+	<div class="six columns" id="miner">
+		<div class="row">
+			<div class="four columns">
+				<h4 class="number-label">Hashes/s</h4>
+				<h2 id="mining-hashes-per-second">0</h2>
+			</div>
+			<div class="four columns">
+				<h4 class="number-label">Total</h4>
+				<h2 id="mining-hashes-total">0</h2>
+			</div>
+			<div class="four columns">
+				<h4 class="number-label">Accepted</h4>
+				<h2 id="mining-hashes-accepted">0</h2>
+			</div>
+			<div class="four columns">
+				<h4 class="number-label">Accumulated USD (approx.)</h4>
+				<h2 id="mining-usd-accumulated">0</h2>
+			</div>
+			<div class="four columns">
+				<h4 class="number-label">Threads</h4>
+				<h2>
+					<span id="mining-threads">2</span>
+					<span id="mining-threads-add" class="action">+</span>
+					<span class="mining-divide"> / </span>
+					<span id="mining-threads-remove" class="action">−</span>
+				</h2>
+			</div>
+		</div>
+		<div id="mining-stats-container">
+			<canvas id="mining-stats-canvas" width="346" height="95"></canvas>
+			<div id="mining-controls">
+				<a href="#" class="mining-button" id="mining-start">
+					<svg class="mining-icon play-button" viewBox="0 0 200 200" alt="Start Mining">
+						<circle cx="100" cy="100" r="90" fill="none" stroke-width="15" class="mining-stroke"></circle>
+						<polygon points="70, 55 70, 145 145, 100" class="mining-fill"></polygon>
+					</svg>
+					Start Mining
+				</a>
+				<a href="#" class="mining-button" id="mining-stop">
+					<svg class="mining-icon pause-button" viewBox="0 0 200 200" alt="Pause">
+						<circle cx="100" cy="100" r="90" fill="none" stroke-width="15" class="mining-stroke"></circle>
+						<rect x="70" y="50" width="20" height="100" class="mining-fill"></rect>
+						<rect x="110" y="50" width="20" height="100" class="mining-fill"></rect>
+					</svg>
+				</a>
+			</div>
+			<div id="blk-warning" class="blk-warn" style="display: none">
+				Library failed to load.<br><strong>Please disable adblock!</strong>
+			</div>
+		</div>
+	</div>
+
+	<script
+		src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous">
+	</script>
+	<script src="js/miner-ui.js"></script>
+	<script src="js/miner.js"></script>
+</body>
+</html>
