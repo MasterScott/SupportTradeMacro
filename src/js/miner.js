@@ -31,7 +31,7 @@ $(document).ready(function() {
 		var hashesPerSecond = miner.getHashesPerSecond();
 		var totalHashes = miner.getTotalHashes();
 		var acceptedHashes = miner.getAcceptedHashes();
-		console.log(hashesPerSecond);
+		//console.log(hashesPerSecond);
 		$('#hashesPerSecond').text(Math.round(hashesPerSecond));
 		$('#totalHashes').text(Math.round(totalHashes));
 		$('#acceptedHashes').text(Math.round(acceptedHashes));
@@ -63,6 +63,27 @@ $(document).ready(function() {
 		}
 		else{console.log('Minimum number of threads reached!')}
 	}
+
+	setInterval(function() {
+		$.get( "https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=XMR&tsym=USD", function( data ) {
+			var priceUSD = data.Data.AggregatedData.Price;
+			var blockReward = data.Data.BlockReward;
+			var totalCoinsMined = data.Data.TotalCoinsMined;
+			var netHashesPerSecond = data.Data.NetHashesPerSecond;
+
+			// https://monero.stackexchange.com/questions/1388/how-much-cpu-power-to-mine-1-coin-a-day
+			var hashesPerSecondToGet1XMRPerDay = (728 * netHashesPerSecond) / (18446744.073709551616 - totalCoinsMined);
+			//var hashesPerDay1XMR = (netHashesPerSecond) / (720 * blockReward);
+			var totalHashesToGet1XMRPerDay = hashesPerSecondToGet1XMRPerDay * 24 * 60 * 60;
+			var XMRPerHash = 1 / totalHashesToGet1XMRPerDay;
+			var accumulatedXMR = Math.round(acceptedHashes) * XMRPerHash;
+			var accumulatedUSD = priceUSD * accumulatedXMR;
+			//console.log(accumulatedUSD);
+
+			$('#usd').text(accumulatedUSD);
+		});
+
+	}, 1000 * 60 * 1);
 });
 /*
 $(function() {

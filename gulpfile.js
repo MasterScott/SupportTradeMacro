@@ -77,7 +77,7 @@ gulp.task('styles', function() {
 			.on('error', sass.logError))
 		.pipe(gulp.dest('./src/css/'))
 	;
-	
+
 	/* Compile compressed (no added charset) */
 	return gulp.src('./src/scss/*.scss')
 		.pipe(sass({outputStyle: 'compressed'})
@@ -88,6 +88,11 @@ gulp.task('styles', function() {
 	;
 });
 
+var cors = function (req, res, next) {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	next();
+};
+
 // Starts a test server, which you can view at http://localhost:8079
 gulp.task('webserver', function() {
 	gulp.src('./app')
@@ -96,7 +101,8 @@ gulp.task('webserver', function() {
 			host: 'localhost',
 			fallback: 'index.html',
 			livereload: true,
-			open: true
+			open: true,
+			middleware: [cors]
 		}));
 });
 
