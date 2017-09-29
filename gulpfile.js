@@ -17,7 +17,7 @@ var paths = {
 		'src/lib/coinhive.min.js'
 	],
 	appJS: [
-		'src/js/miner.js'
+		'src/js/miner-ui.js'
 	]
 };
 

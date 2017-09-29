@@ -1,4 +1,122 @@
 body {
-	background: #cccccc;
-	font-size: 16px;
+	font-size: 1em;
+	line-height: 1.2;
+	font-weight: 400;
+	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+a {
+	color: #1e9ee0;
+	text-decoration: none;
+	background-color: transparent;
+}
+
+h2 {
+	font-size: 2.0rem;
+	line-height: 1.25;
+	letter-spacing: -0.10rem;
+}
+
+h4 {
+	font-size: 1.2rem;
+	line-height: 1.35;
+	letter-spacing: -0.05rem;
+	text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+	margin-bottom: 2rem;
+	font-weight: 300;
+}
+
+/* Landing Page Miner ------------------------------------------------------- */
+
+#mining-start {
+	text-transform: uppercase;
+	font-size: 120%;
+	display: inline-block;
+}
+
+h4.number-label {
+	margin: 16px 0 0 0;
+}
+
+.action {
+	cursor: pointer;
+	color: #1e9ee0;
+	text-decoration: none;
+}
+
+#miner h4.number-label,
+#miner h2 {
+	color: #aaa;
+}
+
+#miner.running h4.number-label,
+#miner.running h2 {
+	color: #555;
+}
+
+#mining-stats-container {
+	position: relative;
+	text-align: center;
+	height: 96px;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+#mining-stats-canvas {
+	z-index: 1;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#mining-controls {
+	z-index: 2;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding: 32px 0;
+}
+
+#mining-start {
+	text-transform: uppercase;
+	font-size: 120%;
+	display: inline-block;
+}
+
+#miner.running #mining-start {
+	position: relative;
+	z-index: 2;
+	display: none;
+}
+
+#mining-stop {
+	display: none;
+}
+
+#miner.running #mining-controls:hover #mining-stop {
+	position: relative;
+	z-index: 2;
+	display: inline-block;
+}
+
+.mining-icon {
+	width: 32px;
+	height: 32px;
+	vertical-align: -37%;
+	margin-right: 4px;
+}
+
+.mining-icon .mining-stroke { stroke: #1e9ee0; }
+.mining-icon .mining-fill { fill: #1e9ee0; }
+.mining-button:hover .mining-icon .mining-stroke { stroke: #555; }
+.mining-button:hover .mining-icon .mining-fill { fill: #555; }
+
+#miner.stopped .action { color: #aaa; }
+.mining-divide { font-size: 80%; color: #eee; }
