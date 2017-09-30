@@ -137,7 +137,7 @@ MinerUI.prototype.getMoneroInfo = function() {
 	var totalCoinsMined = 0;
 
 	$.ajaxSetup( { "async": false } );
-	$.getJSON("http://moneroblocks.info/api/get_stats", function(result){
+	$.getJSON("https://moneroblocks.info/api/get_stats", function(result){
 		//console.log(result);
 		netHashesPerSecond = result.hashrate;
 		$.getJSON("https://api.coinmarketcap.com/v1/ticker/monero/", function(result) {
