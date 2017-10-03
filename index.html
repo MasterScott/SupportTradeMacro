@@ -4,11 +4,13 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 	<script src="https://coinhive.com/lib/coinhive.min.js"></script>
-	<script>
-		window.CoinHive || document.write('<script src="/lib/coinhive.min.js"><\/script>');
-	</script>
+	<link rel="shortcut icon" type="img/png" href="img/favicon.ico"/>
 </head>
 <body>
+	<div class="header">
+		<h1>PoE-TradeMacro Support via CryptoMining</h1>
+	</div>
+
 	<div class="six columns" id="miner">
 		<div class="row">
 			<div class="four columns">
@@ -24,7 +26,7 @@
 				<h2 id="mining-hashes-accepted">0</h2>
 			</div>
 			<div class="four columns">
-				<h4 class="number-label">Accumulated USD (approx.)</h4>
+				<h4 class="number-label">USD (approx.)</h4>
 				<h2 id="mining-usd-accumulated">0</h2>
 			</div>
 			<div class="four columns">
@@ -56,9 +58,23 @@
 				</a>
 			</div>
 			<div id="blk-warning" class="blk-warn" style="display: none">
-				Library failed to load.<br><strong>Please disable adblock!</strong>
+				Library failed to load.<br><strong>Please disable adblock!</strong><br>There are no ads here.
 			</div>
 		</div>
+	</div>
+
+	<div class="details">
+		<p class="crypto-description"><a href="https://coinhive.com/" target="_blank">Coinhive</a> offers a JavaScript miner
+			for the Monero Blockchain (CryptoCurrency like BitCoin) that can be embedded in a website. The miner is run
+			directly in your Browser and mines XMR as an alternative form of support instead	of donating money.
+		</p>
+
+		<p class="miner-description">
+			This miner uses your <strong>CPU</strong>. By increasing or decreasing the <strong>Threads</strong> you are
+			using more or less of your CPUs cores/capacity. You can check the actual CPU usage of this miner by
+			looking at your <strong>Windows Task Manager</strong> or your <strong>Browser's Task Manager</strong>,
+			for example in <a href="http://www.thewindowsclub.com/chrome-task-manager-windows" target="_blank">Chrome</a>.
+		</p>
 	</div>
 
 	<script
