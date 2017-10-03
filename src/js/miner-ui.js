@@ -121,11 +121,11 @@ MinerUI.prototype.drawGraph = function() {
 
 		var vh = ((s.hashes/vmax) * (h - 16))|0;
 		if (s.accepted) {
-			this.ctx.fillStyle = '#aaa';
+			this.ctx.fillStyle = '#464646';
 			this.ctx.fillRect(w - j*10, h - vh, 9, vh);
 		}
 		else {
-			this.ctx.fillStyle = '#ccc';
+			this.ctx.fillStyle = '#373737';
 			this.ctx.fillRect(w - j*10, h - vh, 9, vh);
 		}
 	}
@@ -171,5 +171,6 @@ MinerUI.prototype.getUSD = function() {
 	var accumulatedUSD = priceUSD * accumulatedXMR;
 
 	this.accumulatedUSD = accumulatedUSD;
-	this.elements.accumulatedUSD.textContent = accumulatedUSD;
+	var rounded = +accumulatedUSD.toFixed(10);
+	this.elements.accumulatedUSD.textContent = rounded;
 };

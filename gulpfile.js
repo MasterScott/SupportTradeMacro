@@ -50,19 +50,19 @@ gulp.task('uglify:appJS', function (cb) {
 
 /* Compress images */
 gulp.task('images', function() {
-	return gulp.src('./src/images/*.+(jpg|jpeg|gif|png|svg)')
+	return gulp.src('./src/img/*.+(jpg|jpeg|gif|png|svg)')
 		.pipe(imagemin({
 			progressive: true,
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		}))
-		.pipe(gulp.dest('./src/images/'));
+		.pipe(gulp.dest('./app/img/'));
 });
 
 /* Copy images */
 gulp.task('copy:images', function (cb) {
 	// Asset icons
-	gulp.src('./src/img/**/*.+(jpg|jpeg|gif|png|svg)')
+	gulp.src('./src/img/**/*.+(jpg|jpeg|gif|png|svg|ico)')
 		.pipe(gulp.dest('./app/img/'))
 	;
 
@@ -127,5 +127,5 @@ gulp.task('default', ['init'], function () {
 	gulp.watch('./src/**/*.html', ['copy:html']);
 
 	// Watch Images
-	gulp.watch('./src/img/**/*.+(jpg|jpeg|gif|png|svg)', ['copy:images']);
+	gulp.watch('./src/img/**/*.+(jpg|jpeg|gif|png|svg|ico)', ['copy:images']);
 });
