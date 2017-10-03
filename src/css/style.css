@@ -155,3 +155,22 @@ h4.number-label {
   max-width: 720px;
   margin: 0 auto;
   padding: 50px 20px 30px 20px; }
+
+.paypal {
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 3px;
+  width: 110px;
+  background-color: #393939;
+  border: 1px solid #1d1c1c;
+  -webkit-box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.3); }
+  .paypal img {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    display: none; }
+  .paypal input[type="image"] {
+    margin: 0 auto;
+    width: 100px; }
