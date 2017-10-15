@@ -1,7 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Support PoE-TradeMacro</title>
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 	<script src="https://coinhive.com/lib/coinhive.min.js"></script>
 	<link rel="shortcut icon" type="img/png" href="img/favicon.ico"/>
@@ -38,6 +39,15 @@
 					<span id="mining-threads-remove" class="action">−</span>
 				</h2>
 			</div>
+			<div class="four columns">
+				<h4 class="number-label">Speed</h4>
+				<h2>
+					<span class="" id="mining-speed">100%</span>
+					<span class="action" id="mining-speed-up">+</span>
+					<span class="mining-divide"> / </span>
+					<span class="action" id="mining-speed-down">−</span>
+				</h2>
+			</div>
 		</div>
 		<div id="mining-stats-container">
 			<canvas id="mining-stats-canvas" width="346" height="95"></canvas>
@@ -58,29 +68,42 @@
 				</a>
 			</div>
 			<div id="blk-warning" class="blk-warn" style="display: none">
-				Library failed to load.<br><strong>Please disable adblock!</strong><br>There are no ads here.
+				Library <span id="failed-lib"></span> failed to load.<br><strong>Please disable adblock!</strong>
+				<br>There are no ads here.
 			</div>
 		</div>
 	</div>
 
+	<div class="security" id="security-notice">
+		<p>Blocking the library can also be caused by your Security Suites Webprotection.</p>
+		<p>
+			The javascript miner is in no way malicious but it was secretly embedded in a lot of websites or even
+			browser extensions without notifying it's users, therefore Security Suites started outright blocking it.
+			In the future there will be an opt-in to prevent this.
+			<a href="https://authedmine.com/" target="_blank">Preview</a>
+		</p>
+	</div>
+
 	<div class="details">
-		<p class="crypto-description"><a href="https://coinhive.com/" target="_blank">Coinhive</a> offers a JavaScript miner
-			for the Monero Blockchain (CryptoCurrency like BitCoin) that can be embedded in a website. The miner is run
-			directly in your Browser and mines XMR as an alternative form of support instead	of donating money.
+		<p class="crypto-description"><a href="https://coinhive.com/" target="_blank">Coinhive</a> offers a JavaScript
+			miner for the Monero Blockchain (CryptoCurrency like BitCoin) that can be embedded in a website. The miner
+			is run directly in your Browser and mines XMR as an alternative form of support instead	of donating money.
 		</p>
 
 		<p class="miner-description">
 			This miner uses your <strong>CPU</strong>. By increasing or decreasing the <strong>Threads</strong> you are
-			using more or less of your CPUs cores/capacity. You can check the actual CPU usage of this miner by
-			looking at your <strong>Windows Task Manager</strong> or your <strong>Browser's Task Manager</strong>,
-			for example in <a href="http://www.thewindowsclub.com/chrome-task-manager-windows" target="_blank">Chrome</a>.
+			using more or less of your CPUs cores and by changing the <strong>Speed</strong> you can adjust every cores
+			utilization. You can check the actual CPU usage of this miner by looking at your
+			<strong>Windows Task Manager</strong> or your <strong>Browser's Task Manager</strong>, for example in
+			<a href="http://www.thewindowsclub.com/chrome-task-manager-windows" target="_blank">Chrome</a>.
 		</p>
 	</div>
 
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="paypal">
 		<input type="hidden" name="cmd" value="_s-xclick">
 		<input type="hidden" name="hosted_button_id" value="4ZVTWJNH6GSME">
-		<input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+		<input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png"
+			   border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
 		<img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png" alt="PayPal Logo">
 	</form>
 
