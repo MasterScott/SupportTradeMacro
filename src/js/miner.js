@@ -3,10 +3,17 @@ $(document).ready(function() {
 	try {
 		miner = new CoinHive.Anonymous('jcmh07Zc2xUXc345NPvBV1E16aolFvhP', {threads: 2});
 	} catch(e) {
-		document.getElementById('blk-warning').style.display = 'block';
-		document.getElementById('security-notice').style.display = 'block';
-		document.getElementById('mining-start').style.display = 'none';
-		document.getElementById('failed-lib').textContent = '"coinhive.min.js"';
+		displayAdBlockWarning('Library "coinhive.min.js" failed to load.');
+	}
+
+	try {
+		$.get( "https://coinhive.com/lib/cryptonight.wasm")
+			.fail(function (jqXHR, textStatus, error) {
+				console.log("Failed get request to coinhive.");
+				displayAdBlockWarning('Request to "coinhive" failed.');
+			});
+	} catch(e) {
+		displayAdBlockWarning('Request to "coinhive" failed.');
 	}
 
 	try {
@@ -29,9 +36,13 @@ $(document).ready(function() {
 			secNotice: document.getElementById('sec-notice')
 		});
 	} catch(e) {
+		displayAdBlockWarning('Library "miner-ui.js" failed to load.');
+	}
+
+	function displayAdBlockWarning(msg) {
 		document.getElementById('blk-warning').style.display = 'block';
 		document.getElementById('security-notice').style.display = 'block';
 		document.getElementById('mining-start').style.display = 'none';
-		document.getElementById('failed-lib').textContent = '"miner-ui.js"';
+		document.getElementById('failed-lib').textContent = msg;
 	}
 });
