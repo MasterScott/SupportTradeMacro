@@ -151,10 +151,15 @@ h4.number-label {
   letter-spacing: 0;
   margin-top: 10px; }
 
-.details {
+.details, .security {
   max-width: 720px;
   margin: 0 auto;
   padding: 50px 20px 30px 20px; }
+
+.security {
+  display: none;
+  padding-top: 10px;
+  color: #b60425; }
 
 .paypal {
   margin: 0 auto;

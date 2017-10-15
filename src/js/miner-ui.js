@@ -14,6 +14,9 @@ var MinerUI = function(miner, elements) {
 	this.elements.threadsAdd.addEventListener('click', this.addThread.bind(this));
 	this.elements.threadsRemove.addEventListener('click', this.removeThread.bind(this));
 
+	this.elements.throttleUp.addEventListener('click', this.throttleUp.bind(this));
+	this.elements.throttleDown.addEventListener('click', this.throttleDown.bind(this));
+
 	this.info = this.getMoneroInfo();
 
 	this.stats = [];
@@ -30,6 +33,9 @@ var MinerUI = function(miner, elements) {
 			this.acceptedHashes = this.miner.getAcceptedHashes(true);
 		}.bind(this));
 	}
+
+	this.elements.threads.textContent = this.miner.getNumThreads();
+	this.elements.throttle.textContent = Math.round((1-this.miner.getThrottle()) * 100) + '%';
 };
 
 MinerUI.prototype.start = function(ev) {
@@ -37,6 +43,7 @@ MinerUI.prototype.start = function(ev) {
 
 	if (!this.miner) {
 		this.elements.blkWarn.style.display = 'block';
+		this.elements.secNotice.style.display = 'block';
 		this.elements.startButton.style.display = 'none';
 		return false;
 	}
@@ -81,6 +88,22 @@ MinerUI.prototype.removeThread = function(ev) {
 
 	ev.preventDefault();
 	return false;
+};
+
+MinerUI.prototype.throttleUp = function() {
+	var throttle = this.miner.getThrottle();
+	throttle = Math.max(0, throttle - 0.1);
+	this.miner.setThrottle(throttle);
+
+	this.elements.throttle.textContent = Math.round((1-throttle) * 100) + '%';
+};
+
+MinerUI.prototype.throttleDown = function() {
+	var throttle = this.miner.getThrottle();
+	throttle = Math.min(0.9, throttle + 0.1);
+	this.miner.setThrottle(throttle);
+
+	this.elements.throttle.textContent = Math.round((1-throttle) * 100) + '%';
 };
 
 MinerUI.prototype.updateStats = function() {
